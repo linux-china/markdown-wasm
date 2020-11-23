@@ -6,7 +6,7 @@ markdown-wasm for Deno
 # How to use?
 
 ```typescript
-import {parseMarkdown} from "https://denopkg.com/linux-china/markdown-wasm/mod.ts"
+import {parseMarkdown} from "https://deno.land/x/markdown_wasm/mod.ts"
 
 console.log(parseMarkdown("# hello\n*世界*"))
 ```
