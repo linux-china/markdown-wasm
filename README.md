@@ -16,4 +16,4 @@ console.log(parseMarkdown("# hello\n*世界*"))
 # References
 
 * markdown-wasm: Markdown parser and HTML generator implemented in WebAssembly, based on md4c  https://github.com/rsms/markdown-wasm
-
+* MD4C: https://github.com/mity/md4c
