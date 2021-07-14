@@ -1,5 +1,5 @@
 import {compress} from "https://deno.land/x/brotli@v0.1.4/mod.ts";
-import {encode as base64} from "https://deno.land/std@0.74.0/encoding/base64.ts";
+import {encode as base64} from "https://deno.land/std@0.101.0/encoding/base64.ts";
 
 //encode wasm binary file with lz4
 const wasm = await Deno.readFile("dist/markdown.wasm");
