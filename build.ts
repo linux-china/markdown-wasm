@@ -7,8 +7,6 @@ const compressed = compress(wasm);
 const encodedWasmText = base64(compressed);
 // process markdown.deno.js for Deno
 let jsCode = await Deno.readTextFile("dist/markdown.bundle.es.js");
-//convert utf-16le to utf-8 because utf-16le not available on Deno
-jsCode = jsCode.replace("utf-16le", "utf-8");
 // remove const WASM_DATA Uint8Array
 let begin = jsCode.indexOf("]);");
 jsCode = jsCode.substring(begin + 3);
