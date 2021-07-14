@@ -43,7 +43,29 @@ export interface ParseOptions {
      * This only provides a performance benefit when you never need to convert the output
      * to a string. In most cases you're better off leaving this unset or false.
      */
-    bytes?: boolean
+    bytes?: boolean,
+    /** Allow "javascript:" in links */
+    allowJSURIs? :boolean,
+    /**
+     * Optional callback which if provided is called for each code block.
+     * langname holds the "language tag", if any, of the block.
+     *
+     * The returned value is inserted into the resulting HTML verbatim, without HTML escaping.
+     * Thus, you should take care of properly escaping any special HTML characters.
+     *
+     * If the function returns null or undefined, or an exception occurs, the body will be
+     * included as-is after going through HTML escaping.
+     *
+     * Note that use of this callback has an adverse impact on performance as it casues
+     * calls and data to be bridged between WASM and JS on every invocation.
+     */
+    onCodeBlock? :(langname :string, body :UTF8Bytes) => Uint8Array|string|null|undefined
+}
+
+/** UTF8Bytes is a Uint8Array representing UTF8 text  */
+export interface UTF8Bytes extends Uint8Array {
+    /** toString returns a UTF8 decoded string (lazily decoded and cached) */
+    toString() :string
 }
 
 /** Flags that customize Markdown parsing */
